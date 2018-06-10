@@ -29,6 +29,20 @@ To train a convolutional neural network for gender and age analysis, we only nee
 |Age Range|0-10|10-20|20-30|30-40|40-50|50-60|60-70|70-80|80-90|90-100|
 |---------|----|-----|-----|-----|-----|-----|-----|-----|-----|------|
 | Precent |0.4%|6.7% |37.9%|21.6%|13.1%|9.0% |6.0% |2.9% |1.9% | 0.4% |
-- Image size:
-                      64 * 64 * 3
 
+- Image size: 64 * 64 * 3
+
+## 3. Methods
+The training network is built based on Keras and using Tensorflow backend. The Network consists of the following 6 layers(Figure 1):
+- Convolutional 2D layer with 128 filters of size 5x5 and with stride 4 with input size of 64*64*3 with Activation function LeakyReLU
+- Convolutional 2D layer with 256 filters of size 5x5 with Activation function LeakyReLU
+- Maxpooling layer with pool size 2x2
+- Dropout layer with drop rate 0.25
+- Convolutional 2D layer with 128 filters of size 5x5 with Activation function LeakyReLU
+- Convolutional 2D layer with 256 filters of size 5x5 with Activation function LeakyReLU
+- Maxpooling layer with pool size 2x2
+- Dropout layer with drop rate 0.25
+- Dropout layer with drop rate 0.25
+- Fully connected layer with 1024 node
+- Dropout layer with drop rate 0.25
+- Softmax output layer with size 2(in gender prediction) or 100(in age prediction)
